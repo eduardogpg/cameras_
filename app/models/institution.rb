@@ -8,4 +8,11 @@
 #  updated_at :datetime         not null
 #
 class Institution < ApplicationRecord
+
+    has_many :places
+
+    def cameras
+        self.places.reduce(0) { |sum, place| sum + place.total }
+    end
+
 end
