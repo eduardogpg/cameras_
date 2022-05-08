@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: places
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  institution_id :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+one:
+  name: MyString
+  institution: one
+
+two:
+  name: MyString
+  institution: two

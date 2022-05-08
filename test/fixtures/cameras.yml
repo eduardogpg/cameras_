@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: cameras
+#
+#  id         :integer          not null, primary key
+#  working    :integer
+#  fs         :integer
+#  kind       :integer
+#  place_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  working: 1
+  fs: 1
+  kind: 1
+  place: one
+
+two:
+  working: 1
+  fs: 1
+  kind: 1
+  place: two
