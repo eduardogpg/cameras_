@@ -11,7 +11,9 @@
 class Place < ApplicationRecord
   belongs_to :institution
   has_many :cameras
-  
+
+  accepts_nested_attributes_for :cameras, update_only: true
+
   def working
     self.cameras.reduce(0) { |sum, camera| sum + camera.working }
   end
