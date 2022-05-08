@@ -18,4 +18,12 @@ class Camera < ApplicationRecord
 
   enum kind: [:termica, :fija, :domo, :ptz, :lpr]
 
+  def kind_format
+    return 'Cam. Termica.' if self.kind == 'termica'
+    return 'Cam. Fija.' if self.kind == 'fija'
+    return 'Cam. Mini Domo.' if self.kind == 'domo'
+    return 'Cam. PTZ.' if self.kind == 'ptz'
+    return 'Cam. LPR.' if self.kind == 'lpr'
+  end
+
 end

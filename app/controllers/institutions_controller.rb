@@ -7,6 +7,7 @@ class InstitutionsController < ApplicationController
   end
 
   def show
+    @institutions = Institution.all
   end
 
 
