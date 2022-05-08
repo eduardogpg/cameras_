@@ -11,8 +11,12 @@
 class Place < ApplicationRecord
   belongs_to :institution
   has_many :cameras
+  has_many :reports
+
+  after_create :create_cameras
 
   accepts_nested_attributes_for :cameras, update_only: true
+  
 
   def working
     self.cameras.reduce(0) { |sum, camera| sum + camera.working }
@@ -26,4 +30,7 @@ class Place < ApplicationRecord
     self.cameras.reduce(0) { |sum, camera| sum + (camera.fs + camera.working) }
   end
 
+  def create_cameras
+    (0..4).each { |c|  Camera.create(kind:c, place: self, working:0, fs:0) } unless self.cameras.any?
+  end
 end

@@ -1,10 +1,45 @@
-<p style="color: green"><%= notice %></p>
+<section class="py-8">
+    <div class="container px-4 mx-auto">
+        <div class="flex flex-wrap -m-4">
+            <div class="w-full p-4">
+                <div class="p-6 bg-white shadow rounded">
+                    <div class="flex justify-between mb-4">
+                        <div class="flex items-center">
+                            <div>
+                            <div class="flex mb-2">
+                                <h3 class="text-2xl font-bold">Datos</h3>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
 
-<%= render @place %>
+                    <div class="flex mb-4 justify-between items-center">
+                        <div class="flex items-center">
+                            <h4 class="text-lg text-gray-500">Nombre completo</h4>
+                        </div>
+                        <span class="text-lg">{{ prospect.full_name }}</span>
+                    </div>
+                    <div class="flex mb-4 justify-between items-center">
+                        <div class="flex items-center">
+                        <h4 class="text-lg text-gray-500">Número teléfonico</h4>
+                        </div>
+                        <span class="text-lg">{{ prospect.phone_number }}</span>
+                    </div>
+                    <div class="flex mb-4 justify-between items-center">
+                        <div class="flex items-center">
+                        <h4 class="text-lg text-gray-500">CURP</h4>
+                        </div>
+                        <span class="text-lg">{{ prospect.curp }}</span>
+                    </div>
+                    <div class="flex mb-4 justify-between items-center">
+                        <div class="flex items-center">
+                        <h4 class="text-lg text-gray-500">Clave de elector</h4>
+                        </div>
+                        <span class="text-lg">{{ prospect.DNI }}</span>
+                    </div>
 
-<div>
-  <%= link_to "Edit this place", edit_place_path(@place) %> |
-  <%= link_to "Back to places", places_path %>
-
-  <%= button_to "Destroy this place", @place, method: :delete %>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

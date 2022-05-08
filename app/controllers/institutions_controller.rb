@@ -3,7 +3,7 @@ class InstitutionsController < ApplicationController
 	before_action :set_institution, only: [:show]
     
   def index
-    @institutions = Institution.all
+    @institutions = Institution.all.order('name ASC')
   end
 
   def show
