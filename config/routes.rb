@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'institutions/index'
-  root 'institutions#index'
+  get 'regions/index'
+  root 'regions#index'
 
-  resources :institutions, only: [:index, :show]
+  resources :regions, only: [:index, :show]
   resources :places
 end

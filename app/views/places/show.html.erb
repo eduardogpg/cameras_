@@ -1,33 +1,60 @@
-<section class="">
-    <div class="container px-4 mx-auto">
-        <div>
-            <%= link_to "Editar", edit_place_path(@place), class:"mb-4 inline-block md:w-auto px-4 py-2 font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded" %>
-        </div>
-        <div class="flex flex-wrap -m-4">
-            <div class="w-full p-4">
-                <div class="p-6 bg-white shadow rounded">
-                    <div class="flex justify-between mb-4">
-                        <div class="flex items-center">
-                            <div class="flex mb-2">
-                                <h3 class="text-2xl font-bold"><%= @place.name %></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <% @place.cameras.each do |camera| %>
-                        <div class="grid grid-cols-3 gap-3 ">
-                            <div >
-                                <h4 class="text-lg text-gray-500"><%= camera.kind_format %></h4>
-                            </div>
-                            <div class="text-center">
-                                <span class="text-lg text-gray-500"><%= camera.working %> En funcionamiento.</span>
-                            </div>
-                            <div class="text-center">
-                                <span class="text-lg text-gray-500"><%= camera.fs %> F/S.</span>
-                            </div>
-                        </div>
-                    <% end %>
+<section class="py-8">
+  <div class="container px-4 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      <div class="w-full p-4">
+        <div class="p-6 bg-white shadow rounded">
+          <div class="flex justify-between mb-2">
+            <div class="flex items-center">
+              <div>
+                <div class="flex mb-2">
+                  <h3 class="font-medium"><%= @place.name %></h3>
                 </div>
+                <!-- <p class="text-base text-gray-500">Total Cámaras: <strong><%= @place.cameras.count %></strong></p> -->
+              </div>
             </div>
+          </div>
+          <div class="flex mb-2 justify-between items-center">
+            <div class="flex items-center">
+              <h4 class="text-base text-gray-500">Región</h4>
+            </div>
+            <%= link_to region_path(@place.region), class:"font-medium text-indigo-500 hover:underline" do %>
+              <span class="text-base"><%= @place.region.name %></span>
+            <% end %>
+          </div>
+          <hr class="mt-4 mb-4">
+          <div class="flex mb-2 justify-between items-center">
+            <div class="flex items-center">
+              <h4 class="text-base text-gray-500">Cámaras totales</h4>
+            </div>
+            <span class="text-base"><%= @place.total %></span>
+          </div>
+          <div class="flex mb-2 justify-between items-center">
+            <div class="flex items-center">
+              <h4 class="text-base text-gray-500">Cámaras operativas</h4>
+            </div>
+            <span class="text-base"><%= @place.working %></span>
+          </div>
+          <div class="flex mb-2 justify-between items-center">
+            <div class="flex items-center">
+              <h4 class="text-base text-gray-500">Cámaras fuera de servicio</h4>
+            </div>
+            <span class="text-base"><%= @place.fs %></span>
+          </div>
+          <div class="flex mb-2 justify-between items-center">
+            <div class="flex items-center">
+              <h4 class="text-base text-gray-500">Porcentaje fuera de servicio</h4>
+            </div>
+            <span class="text-base font-mono <%= @place.percentage_css_class %>"><%= @place.fs_percentage %>%</span>
+          </div>
+          <div class="flex flex-wrap -mx-2 mt-4">
+            <div class="w-full md:w-1/2 px-2 mb-2 md:mb-0">
+              <%= link_to edit_place_path(@place), class:"flex justify-center py-2 text-base text-white bg-indigo-500 hover:bg-indigo-600 rounded transition duration-200" do %>
+                <span>Editar</span>
+              <% end %>
+            </div>
+          </div>
         </div>
+      </div> 
     </div>
+  </div>
 </section>

@@ -8,14 +8,14 @@
                 <%= link_to 'Regresar al listado', root_path, class:"font-medium text-indigo-500 hover:underline"%>
             </div>
             <div>
-                <h3 class="mr-2 text-xl font-bold">Instalaciones para <%= @institution.name %></h3>
+                <h3 class="mr-2 text-xl font-bold">Instalaciones para <%= @region.name %></h3>
             </div>
           </div>
         </div>
       </div>
 
-    <% @institution.places.each do |place| %>
-        <%= link_to edit_place_path(place) do %>
+    <% @region.places.each do |place| %>
+        <%= link_to place_path(place) do %>
             <div class="flex justify-between items-center mb-2 p-4 bg-gray-50 rounded">
                 <div class="flex items-center">
                 <span class="inline-flex w-10 h-10 mr-3 justify-center items-center bg-purple-50 rounded">

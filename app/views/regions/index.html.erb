@@ -4,13 +4,13 @@
       <div class="flex flex-wrap items-center mb-3">
         <div>
           <div class="flex items-center">
-            <h3 class="mr-2 text-xl font-bold">Listado RSF</h3>
+            <h3 class="mr-2 text-xl font-bold">Regiones</h3>
           </div>
         </div>
       </div>
 
-    <% @institutions.each do |institution| %>
-        <%= link_to institution do %>
+    <% @regions.each do |region| %>
+        <%= link_to region do %>
             <div class="flex justify-between items-center mb-2 p-4 bg-gray-50 rounded">
                 <div class="flex items-center">
                 <span class="inline-flex w-10 h-10 mr-3 justify-center items-center bg-purple-50 rounded">
@@ -19,12 +19,12 @@
                     </svg>
                 </span>
                 <div>
-                    <h4 class="text-sm font-medium"><%= institution.name %></h4>
-                    <p class="text-xs text-gray-500"><%= institution.places.count %> instalaciones.</p>
+                    <h4 class="text-sm font-medium"><%= region.name %></h4>
+                    <p class="text-xs text-gray-500"><%= region.places.count %> instalaciones.</p>
                 </div>
                 </div>
                 <div class="flex items-center">
-                <span class="inline-block mr-3 py-1 px-2 bg-indigo-200 text-xs text-indigo-700 rounded-full"><%= institution.cameras %> Cámaras</span>
+                <span class="inline-block mr-3 py-1 px-2 bg-indigo-200 text-xs text-indigo-700 rounded-full"><%= region.cameras %> Cámaras</span>
                 <!-- 
                     <a href="#">
                         <svg width="16" height="4" viewBox="0 0 16 4" fill="none" xmlns="http://www.w3.org/2000/svg">

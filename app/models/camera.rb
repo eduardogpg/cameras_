@@ -16,6 +16,9 @@ class Camera < ApplicationRecord
   scope :working, ->  { where('working > ? ', 0) }
   scope :fs, ->  { where('fs > ? ', 0) }
 
+  validates :fs, :numericality => { greater_than_or_equal_to: 0 }
+  validates :working, :numericality => { greater_than_or_equal_to: 0 }
+
   enum kind: [:termica, :fija, :domo, :ptz, :lpr]
 
   def kind_format

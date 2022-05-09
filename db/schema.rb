@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_08_151400) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_163754) do
   create_table "cameras", force: :cascade do |t|
     t.integer "working"
     t.integer "fs"
@@ -21,18 +21,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_151400) do
     t.index ["place_id"], name: "index_cameras_on_place_id"
   end
 
-  create_table "institutions", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.integer "institution_id", null: false
+    t.integer "region_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["institution_id"], name: "index_places_on_institution_id"
+    t.index ["region_id"], name: "index_places_on_region_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reports", force: :cascade do |t|
@@ -44,6 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_151400) do
   end
 
   add_foreign_key "cameras", "places"
-  add_foreign_key "places", "institutions"
+  add_foreign_key "places", "regions"
   add_foreign_key "reports", "places"
 end
