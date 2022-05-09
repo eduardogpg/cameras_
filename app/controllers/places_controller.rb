@@ -47,6 +47,11 @@ class PlacesController < ApplicationController
     end
   end
 
+  def search
+    @q = params[:q]
+    @places = Place.where('name LIKE ?', "%#{@q}%")
+  end
+
   # DELETE /places/1 or /places/1.json
   def destroy
     @place.destroy
@@ -65,6 +70,6 @@ class PlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:name, :institution_id, cameras_attributes:[:id, :working, :fs])
+      params.require(:place).permit(:name, :institution_id, :q,  cameras_attributes:[:id, :working, :fs])
     end
 end

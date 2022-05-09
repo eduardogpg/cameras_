@@ -37,7 +37,11 @@ class Place < ApplicationRecord
   end
 
   def fs_percentage
-    (self.fs * 100)/ self.total
+    begin
+        (self.fs * 100)/ self.total
+    rescue
+        0
+    end
   end 
   
   def percentage_css_class
